@@ -42,9 +42,27 @@ public class Grid {
     //load the grid
     public void loadGrid(String string) {
 
+        String[] array = string.split("");
+        int count = 0;
+
+        for (String x : array) {
+            System.out.println(x);
+        }
+
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+
+                if (array[count].equals("0")) {
+                    cells[row][col].cellEmpty();
+                } else {
+                    cells[row][col].cellFilled();
+                }
+                count++;
+            }
+        }
     }
 
-
+    //build the string for the save file
     @Override
     public String toString() {
 
