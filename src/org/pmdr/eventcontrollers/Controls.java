@@ -5,16 +5,19 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.pmdr.Paint;
+import org.pmdr.cursor.Cursor;
 import org.pmdr.cursor.CursorDirections;
 
 public class Controls implements KeyboardHandler {
 
     private Keyboard keyboard;
-    private Paint paint;
+    private final Paint paint;
+    private final Cursor cursor;
 
 
-    public Controls(Paint paint) {
+    public Controls(Paint paint, Cursor cursor) {
         this.paint = paint;
+        this.cursor = cursor;
     }
 
     public void initControls() {
@@ -26,7 +29,8 @@ public class Controls implements KeyboardHandler {
         keyLeft();
         paintBlackButton();
         eraseCellButton();
-
+        saveButton();
+        loadButton();
     }
 
     //add keyboardEvent to the keys
@@ -81,22 +85,40 @@ public class Controls implements KeyboardHandler {
         keyboard.addEventListener(spaceKey);
     }
 
+    //save paint button
+    public void saveButton() {
+        KeyboardEvent saveKey = new KeyboardEvent();
+        saveKey.setKey(KeyboardEvent.KEY_S);
+        saveKey.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        keyboard.addEventListener(saveKey);
+    }
+
+    //load paint button
+    public void loadButton() {
+        KeyboardEvent loadKey = new KeyboardEvent();
+        loadKey.setKey(KeyboardEvent.KEY_L);
+        loadKey.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        keyboard.addEventListener(loadKey);
+    }
+
 
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
         switch (keyboardEvent.getKey()) {
             case KeyboardEvent.KEY_UP:
-                paint.cursorMovement(CursorDirections.UP);
+                cursor.cursorMovement(CursorDirections.UP);
                 break;
             case KeyboardEvent.KEY_RIGHT:
-                paint.cursorMovement(CursorDirections.RIGHT);
+                cursor.cursorMovement(CursorDirections.RIGHT);
                 break;
             case KeyboardEvent.KEY_DOWN:
-                paint.cursorMovement(CursorDirections.DOWN);
+                cursor.cursorMovement(CursorDirections.DOWN);
                 break;
             case KeyboardEvent.KEY_LEFT:
-                paint.cursorMovement(CursorDirections.LEFT);
+                cursor.cursorMovement(CursorDirections.LEFT);
                 break;
             case KeyboardEvent.KEY_B:
                 paint.fillInBlack();
@@ -104,7 +126,12 @@ public class Controls implements KeyboardHandler {
             case KeyboardEvent.KEY_SPACE:
                 paint.eraseCell();
                 break;
-
+            case KeyboardEvent.KEY_S:
+                paint.savePaint();
+                break;
+            case KeyboardEvent.KEY_L:
+                paint.loadPaint();
+                break;
         }
     }
 

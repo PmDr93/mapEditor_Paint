@@ -50,6 +50,6 @@ public class Cell {
     //for save in a txt to know what cells are painted;
     @Override
     public String toString() {
-        return isPainted ? "fill" : "not fill";
+        return isPainted ? " 1 " : " 0 ";
     }
 }

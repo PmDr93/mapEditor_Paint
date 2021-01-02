@@ -15,6 +15,25 @@ public class Cursor extends Cell implements Movement{
         rectangle.fill();
     }
 
+    //cursor movement
+    public void cursorMovement(CursorDirections directions) {
+
+        switch (directions) {
+            case UP:
+                moveUp();
+                break;
+            case RIGHT:
+                moveRight();
+                break;
+            case DOWN:
+                moveDown();
+                break;
+            case LEFT:
+                moveLeft();
+                break;
+        }
+    }
+
 
 
     //make the directions for movement of the cursor

@@ -1,5 +1,7 @@
 package org.pmdr.field;
 
+import java.util.Arrays;
+
 public class Grid {
 
     public final static int PADDING = 10;
@@ -37,4 +39,23 @@ public class Grid {
         }
     }
 
+    //load the grid
+    public void loadGrid(String string) {
+
+    }
+
+
+    @Override
+    public String toString() {
+
+        StringBuilder gridString = new StringBuilder();
+
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                gridString.append(cells[row][col]);
+            }
+            gridString.append("\n");
+        }
+        return gridString.toString();
+    }
 }

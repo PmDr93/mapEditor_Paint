@@ -5,42 +5,25 @@ import org.pmdr.cursor.CursorDirections;
 import org.pmdr.eventcontrollers.Controls;
 import org.pmdr.field.Cell;
 import org.pmdr.field.Grid;
+import org.pmdr.paintmemory.SaveAndLoad;
 
 public class Paint {
 
     private Grid grid;
     private Cursor cursor;
     private Controls controls;
+    private SaveAndLoad saveAndLoad;
 
     public Paint(int rows, int cols) {
         this.grid = new Grid(rows, cols);
         this.cursor = new Cursor(0, 0);
-        this.controls = new Controls(this);
+        this.controls = new Controls(this, cursor);
+        this.saveAndLoad = new SaveAndLoad();
     }
 
     public void init() {
         controls.initControls();
     }
-
-    //cursor movement
-    public void cursorMovement(CursorDirections directions) {
-
-        switch (directions) {
-            case UP:
-                cursor.moveUp();
-                break;
-            case RIGHT:
-                cursor.moveRight();
-                break;
-            case DOWN:
-                cursor.moveDown();
-                break;
-            case LEFT:
-                cursor.moveLeft();
-                break;
-        }
-    }
-
 
 
     //painting in black
@@ -65,5 +48,15 @@ public class Paint {
         } else {
             System.out.println("cell already " + cell.toString());
         }
+    }
+
+    //save the grid
+    public void savePaint() {
+        saveAndLoad.writeToFile(grid.toString());
+    }
+
+    //load the grid
+    public void loadPaint() {
+        grid.loadGrid(saveAndLoad.loadFromFile());
     }
 }
