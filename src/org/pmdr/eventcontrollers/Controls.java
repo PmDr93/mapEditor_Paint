@@ -28,9 +28,18 @@ public class Controls implements KeyboardHandler {
         keyDown();
         keyLeft();
         paintBlackButton();
+        paintBlueButton();
+        paintRedButton();
+        paintYellowButton();
+        paintOrangeButton();
+        paintPinkButton();
+        paintMagentaButton();
+        paintCyanButton();
+        paintGreenButton();
         eraseCellButton();
         saveButton();
         loadButton();
+        clearGrid();
     }
 
     //add keyboardEvent to the keys
@@ -67,6 +76,7 @@ public class Controls implements KeyboardHandler {
         keyboard.addEventListener(downPressed);
     }
 
+
     //painting
     public void paintBlackButton() {
         KeyboardEvent bPressed = new KeyboardEvent();
@@ -74,6 +84,70 @@ public class Controls implements KeyboardHandler {
         bPressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
         keyboard.addEventListener(bPressed);
+    }
+
+    public void paintBlueButton() {
+        KeyboardEvent aPressed = new KeyboardEvent();
+        aPressed.setKey(KeyboardEvent.KEY_A);
+        aPressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        keyboard.addEventListener(aPressed);
+    }
+
+    private void paintRedButton() {
+        KeyboardEvent rPressed = new KeyboardEvent();
+        rPressed.setKey(KeyboardEvent.KEY_R);
+        rPressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        keyboard.addEventListener(rPressed);
+    }
+
+    private void paintYellowButton() {
+        KeyboardEvent yPressed = new KeyboardEvent();
+        yPressed.setKey(KeyboardEvent.KEY_Y);
+        yPressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        keyboard.addEventListener(yPressed);
+    }
+
+    private void paintOrangeButton() {
+        KeyboardEvent oPressed = new KeyboardEvent();
+        oPressed.setKey(KeyboardEvent.KEY_O);
+        oPressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        keyboard.addEventListener(oPressed);
+    }
+
+    private void paintPinkButton() {
+        KeyboardEvent pPressed = new KeyboardEvent();
+        pPressed.setKey(KeyboardEvent.KEY_P);
+        pPressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        keyboard.addEventListener(pPressed);
+    }
+
+    private void paintMagentaButton() {
+        KeyboardEvent mPressed = new KeyboardEvent();
+        mPressed.setKey(KeyboardEvent.KEY_M);
+        mPressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        keyboard.addEventListener(mPressed);
+    }
+
+    private void paintCyanButton() {
+        KeyboardEvent mPressed = new KeyboardEvent();
+        mPressed.setKey(KeyboardEvent.KEY_D);
+        mPressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        keyboard.addEventListener(mPressed);
+    }
+
+    private void paintGreenButton() {
+        KeyboardEvent gPressed = new KeyboardEvent();
+        gPressed.setKey(KeyboardEvent.KEY_G);
+        gPressed.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        keyboard.addEventListener(gPressed);
     }
 
     //erase cell
@@ -85,6 +159,15 @@ public class Controls implements KeyboardHandler {
         keyboard.addEventListener(spaceKey);
     }
 
+    public void clearGrid() {
+        KeyboardEvent clearButton = new KeyboardEvent();
+        clearButton.setKey(KeyboardEvent.KEY_C);
+        clearButton.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        keyboard.addEventListener(clearButton);
+    }
+
+
     //save paint button
     public void saveButton() {
         KeyboardEvent saveKey = new KeyboardEvent();
@@ -93,6 +176,7 @@ public class Controls implements KeyboardHandler {
 
         keyboard.addEventListener(saveKey);
     }
+
 
     //load paint button
     public void loadButton() {
@@ -131,6 +215,33 @@ public class Controls implements KeyboardHandler {
                 break;
             case KeyboardEvent.KEY_L:
                 paint.loadPaint();
+                break;
+            case KeyboardEvent.KEY_C:
+                paint.clearGrid();
+                break;
+            case KeyboardEvent.KEY_A:
+                paint.fillInBlue();
+                break;
+            case KeyboardEvent.KEY_R:
+                paint.fillInRed();
+                break;
+            case KeyboardEvent.KEY_Y:
+                paint.fillInYellow();
+                break;
+            case KeyboardEvent.KEY_O:
+                paint.fillInOrange();
+                break;
+            case KeyboardEvent.KEY_P:
+                paint.fillInPink();
+                break;
+            case KeyboardEvent.KEY_M:
+                paint.fillInMagenta();
+                break;
+            case KeyboardEvent.KEY_D:
+                paint.fillInCyan();
+                break;
+            case KeyboardEvent.KEY_G:
+                paint.fillInGreen();
                 break;
         }
     }

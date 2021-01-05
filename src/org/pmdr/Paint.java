@@ -5,20 +5,22 @@ import org.pmdr.cursor.CursorDirections;
 import org.pmdr.eventcontrollers.Controls;
 import org.pmdr.field.Cell;
 import org.pmdr.field.Grid;
+import org.pmdr.field.Information;
 import org.pmdr.paintmemory.SaveAndLoad;
 
 public class Paint {
 
-    private Grid grid;
-    private Cursor cursor;
-    private Controls controls;
-    private SaveAndLoad saveAndLoad;
+    private final Grid grid;
+    private final Cursor cursor;
+    private final Controls controls;
+    private final SaveAndLoad saveAndLoad;
 
     public Paint(int rows, int cols) {
         this.grid = new Grid(rows, cols);
         this.cursor = new Cursor(0, 0);
         this.controls = new Controls(this, cursor);
         this.saveAndLoad = new SaveAndLoad();
+        Information information = new Information();
     }
 
     public void init() {
@@ -31,12 +33,89 @@ public class Paint {
         Cell cell = grid.getCell(cursor.getRow(), cursor.getCol());
         if (!cell.isPainted()) {
             cell.cellInBlack();
-            cell.cellFilled();
         } else {
-            System.out.println("cell already " + cell.toString());
+            System.out.println("cell already fill in black");
         }
+    }
 
+    //painting in blue
+    public void fillInBlue() {
+        Cell cell = grid.getCell(cursor.getRow(), cursor.getCol());
+        if (!cell.isPainted()) {
+            cell.cellInBlue();
+        } else {
+            System.out.println("cell already fill in blue");
+        }
+    }
 
+    //painting in Yellow
+    public void fillInYellow() {
+        Cell cell = grid.getCell(cursor.getRow(), cursor.getCol());
+        if (!cell.isPainted()) {
+            cell.cellInYellow();
+        } else {
+            System.out.println("cell already fill in yellow");
+        }
+    }
+
+    //painting in Red
+    public void fillInRed() {
+        Cell cell = grid.getCell(cursor.getRow(), cursor.getCol());
+        if (!cell.isPainted()) {
+            cell.cellInRed();
+        } else {
+            System.out.println("cell already fill in red");
+        }
+    }
+
+    //painting in Orange
+    public void fillInOrange() {
+        Cell cell = grid.getCell(cursor.getRow(), cursor.getCol());
+        if (!cell.isPainted()) {
+            cell.cellInOrange();
+        } else {
+            System.out.println("cell already fill in orange");
+        }
+    }
+
+    //painting in Pink
+    public void fillInPink() {
+        Cell cell = grid.getCell(cursor.getRow(), cursor.getCol());
+        if (!cell.isPainted()) {
+            cell.cellInPink();
+        } else {
+            System.out.println("cell already fill in pink");
+        }
+    }
+
+    //painting in Magenta
+    public void fillInMagenta() {
+        Cell cell = grid.getCell(cursor.getRow(), cursor.getCol());
+        if (!cell.isPainted()) {
+            cell.cellInMagenta();
+        } else {
+            System.out.println("cell already fill in magenta");
+        }
+    }
+
+    //painting in Cyan
+    public void fillInCyan() {
+        Cell cell = grid.getCell(cursor.getRow(), cursor.getCol());
+        if (!cell.isPainted()) {
+            cell.cellInCyan();
+        } else {
+            System.out.println("cell already fill in cyan");
+        }
+    }
+
+    //painting in Green
+    public void fillInGreen() {
+        Cell cell = grid.getCell(cursor.getRow(), cursor.getCol());
+        if (!cell.isPainted()) {
+            cell.cellInGreen();
+        } else {
+            System.out.println("cell already fill in green");
+        }
     }
 
     //erase a cell
@@ -48,6 +127,11 @@ public class Paint {
         } else {
             System.out.println("cell already " + cell.toString());
         }
+    }
+
+    //clear the grid
+    public void clearGrid() {
+        grid.clearGrid();
     }
 
     //save the grid

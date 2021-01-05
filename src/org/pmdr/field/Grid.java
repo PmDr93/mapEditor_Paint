@@ -1,6 +1,5 @@
 package org.pmdr.field;
 
-import java.util.Arrays;
 
 public class Grid {
 
@@ -28,7 +27,7 @@ public class Grid {
 
 
     //build the grid with various cols and rows
-    public void buildGrid(int x, int y) {
+    private void buildGrid(int x, int y) {
 
         cells = new Cell[x][y];
 
@@ -52,12 +51,49 @@ public class Grid {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
 
-                if (array[count].equals("0")) {
-                    cells[row][col].cellEmpty();
-                } else {
-                    cells[row][col].cellFilled();
+                switch (array[count]) {
+                    case "0":
+                        cells[row][col].cellEmpty();
+                        break;
+                    case "1":
+                        cells[row][col].cellInBlack();
+                        break;
+                    case "2":
+                        cells[row][col].cellInBlue();
+                        break;
+                    case "3":
+                        cells[row][col].cellInRed();
+                        break;
+                    case "4":
+                        cells[row][col].cellInYellow();
+                        break;
+                    case "5":
+                        cells[row][col].cellInOrange();
+                        break;
+                    case "6":
+                        cells[row][col].cellInPink();
+                        break;
+                    case "7":
+                        cells[row][col].cellInMagenta();
+                        break;
+                    case "8":
+                        cells[row][col].cellInCyan();
+                        break;
+                    case "9":
+                        cells[row][col].cellInGreen();
+                        break;
                 }
                 count++;
+            }
+        }
+    }
+
+    //clear all the grid
+    public void clearGrid() {
+
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                cells[row][col].cellEmpty();
             }
         }
     }
