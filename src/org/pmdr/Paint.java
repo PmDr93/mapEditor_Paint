@@ -14,17 +14,19 @@ public class Paint {
     private final Cursor cursor;
     private final Controls controls;
     private final SaveAndLoad saveAndLoad;
+    Information information;
 
     public Paint(int rows, int cols) {
         this.grid = new Grid(rows, cols);
         this.cursor = new Cursor(0, 0);
         this.controls = new Controls(this, cursor);
         this.saveAndLoad = new SaveAndLoad();
-        Information information = new Information();
+        information = new Information();
     }
 
     public void init() {
         controls.initControls();
+        information.init();
     }
 
 

@@ -101,7 +101,7 @@ public class Cell {
         cellFilled();
     }
 
-    //paint in magenta the cell
+    //paint in cyan the cell
     public void cellInCyan() {
         rectangle.setColor(Color.CYAN);
         //indexes[7] = "8";
@@ -109,7 +109,7 @@ public class Cell {
         cellFilled();
     }
 
-    //paint in magenta the cell
+    //paint in green the cell
     public void cellInGreen() {
         rectangle.setColor(Color.GREEN);
         //indexes[8] = "9";

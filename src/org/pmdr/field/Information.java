@@ -1,13 +1,17 @@
 package org.pmdr.field;
 
+import org.academiadecodigo.simplegraphics.graphics.Text;
+
 public class Information {
 
-    private final int PADDINGINFORMATION = 100;
+     String colorBlack = "'b' = Black Color";
 
-    @Override
-    public String toString() {
-        return "Colors: " +
-                "Black == b" +
-                "Blue == a";
-    }
+
+     public void init() {
+         Text blackInfo = new Text(, 10, colorBlack);
+         blackInfo.draw();
+
+     }
+
+
 }
