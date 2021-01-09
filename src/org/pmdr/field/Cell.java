@@ -4,6 +4,8 @@ package org.pmdr.field;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
+import java.util.*;
+
 public class Cell {
 
     protected int row;
@@ -12,7 +14,7 @@ public class Cell {
     public static final int CELL_SIZE = 20;
     private boolean isPainted;
     private String index;
-    //private String[] indexes;
+    private final Set<Colors> colorsSet = new HashSet<>();
 
     public Cell(int row, int col) {
         this.row = row;
@@ -32,13 +34,13 @@ public class Cell {
         return isPainted;
     }
 
-    //put the boolean isPainted to true
+    //put the boolean isPainted to true and fill the cell
     public void cellFilled() {
         isPainted = true;
         rectangle.fill();
     }
 
-    //put the boolean isPainted to false
+    //put the boolean isPainted to false and draw the cell in black (like empty)
     public void cellEmpty() {
         isPainted = false;
         rectangle.setColor(Color.BLACK);
@@ -48,85 +50,88 @@ public class Cell {
     //paint in black the cell
     public void cellInBlack() {
         rectangle.setColor(Color.BLACK);
-        //indexes[0] = "1";
-        index = "1";
+        index = Colors.BLACK.getIndex();
+        colorsSet.add(Colors.BLACK);
         cellFilled();
     }
 
     //paint in blue the cell
     public void cellInBlue() {
         rectangle.setColor(Color.BLUE);
-        //indexes[1] = "2";
-        index = "2";
+        index = Colors.BLUE.getIndex();
+        colorsSet.add(Colors.BLUE);
         cellFilled();
     }
 
     //paint in red the cell
     public void cellInRed() {
         rectangle.setColor(Color.RED);
-        //indexes[2] = "3";
-        index = "3";
+        index = Colors.RED.getIndex();
+        colorsSet.add(Colors.RED);
         cellFilled();
     }
 
     //paint in yellow the cell
     public void cellInYellow() {
         rectangle.setColor(Color.YELLOW);
-        //indexes[3] = "4";
-        index = "4";
+        index = Colors.YELLOW.getIndex();
+        colorsSet.add(Colors.YELLOW);
         cellFilled();
     }
 
     //paint in orange the cell
     public void cellInOrange() {
         rectangle.setColor(Color.ORANGE);
-        //indexes[4] = "5";
-        index = "5";
+        index = Colors.ORANGE.getIndex();
+        colorsSet.add(Colors.ORANGE);
         cellFilled();
     }
 
     //paint in pink the cell
     public void cellInPink() {
         rectangle.setColor(Color.PINK);
-        //indexes[5] = "6";
-        index = "6";
+        index = Colors.PINK.getIndex();
+        colorsSet.add(Colors.PINK);
         cellFilled();
     }
 
     //paint in magenta the cell
     public void cellInMagenta() {
         rectangle.setColor(Color.MAGENTA);
-        //indexes[6] = "7";
-        index = "7";
+        index = Colors.MAGENTA.getIndex();
+        colorsSet.add(Colors.MAGENTA);
         cellFilled();
     }
 
     //paint in cyan the cell
     public void cellInCyan() {
         rectangle.setColor(Color.CYAN);
-        //indexes[7] = "8";
-        index = "8";
+        index = Colors.CYAN.getIndex();
+        colorsSet.add(Colors.CYAN);
         cellFilled();
     }
 
     //paint in green the cell
     public void cellInGreen() {
         rectangle.setColor(Color.GREEN);
-        //indexes[8] = "9";
-        index = "9";
+        index = Colors.GREEN.getIndex();
+        colorsSet.add(Colors.GREEN);
         cellFilled();
     }
 
-    //for save in a txt to know what cells are painted;
 
+    //for save in a txt to know what cells are painted and with color;
     @Override
     public String toString() {
-        /*for (String index : indexes) {
-            if (isPainted && index.equals()) {
-        }*/
+        for (Colors colors : colorsSet) {
+            if (index.equals(colors.getIndex())) {
+                return index;
+            }
+        }
+        return "0";
 
-
-        if (isPainted && index.equals("1")) { // ============== Black
+        //if and elses for colors index
+        /*if (isPainted && index.equals("1")) { // ============== Black
             return index;
         } else if (isPainted && index.equals("2")) { // ========= Blue
             return index;
@@ -146,17 +151,7 @@ public class Cell {
             return index;
         } else {
             return "0";
-        }
-
-
+        }*/
     }
 
-
-
-
-
-    /* public String toString() {
-
-    }
-*/
 }

@@ -1,11 +1,10 @@
 package org.pmdr;
 
 import org.pmdr.cursor.Cursor;
-import org.pmdr.cursor.CursorDirections;
 import org.pmdr.eventcontrollers.Controls;
 import org.pmdr.field.Cell;
 import org.pmdr.field.Grid;
-import org.pmdr.field.Information;
+import org.pmdr.field.InformationPositions;
 import org.pmdr.paintmemory.SaveAndLoad;
 
 public class Paint {
@@ -14,19 +13,19 @@ public class Paint {
     private final Cursor cursor;
     private final Controls controls;
     private final SaveAndLoad saveAndLoad;
-    Information information;
+    InformationPositions informationPositions;
 
     public Paint(int rows, int cols) {
         this.grid = new Grid(rows, cols);
         this.cursor = new Cursor(0, 0);
         this.controls = new Controls(this, cursor);
         this.saveAndLoad = new SaveAndLoad();
-        information = new Information();
+        informationPositions = new InformationPositions(cols);
     }
 
     public void init() {
         controls.initControls();
-        information.init();
+        informationPositions.init();
     }
 
 
