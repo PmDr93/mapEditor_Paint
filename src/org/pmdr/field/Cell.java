@@ -43,6 +43,7 @@ public class Cell {
     //put the boolean isPainted to false and draw the cell in black (like empty)
     public void cellEmpty() {
         isPainted = false;
+        index = "0";
         rectangle.setColor(Color.BLACK);
         rectangle.draw();
     }
